@@ -1,0 +1,17 @@
+﻿# Manim generated assets
+media/
+**/media/
+**/partial_movie_files/
+**/__pycache__/
+**/.ipynb_checkpoints/
+
+# Render outputs
+*.mp4
+*.svg
+*.tex
+*.log
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.env

@@ -469,7 +469,7 @@ class Escena3_RestaPolinomios(Scene):
         q_expr_new.move_to(q_expr)
 
         self.play(
-            Transform(q_expr, q_expr_new),
+            TransformMatchingShapes(q_expr, q_expr_new),
             rect_q.animate.set_color(GREEN),
             run_time=1.5
         )

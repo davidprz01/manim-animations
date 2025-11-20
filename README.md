@@ -1,10 +1,11 @@
 ﻿# Animaciones de Manim para expresiones algebraicas
 
-Este repositorio contiene cuatro escenas de Manim en español sobre expresiones algebraicas:
+Este repositorio contiene cinco escenas de Manim en español sobre expresiones algebraicas:
 - Escena1: conceptos básicos (monomio, binomio, trinomio, polinomio y grado)
 - Escena2: suma de polinomios
 - Escena3: resta de polinomios
 - Escena4: producto de polinomios
+- Escena5: producto de dos binomios (fórmula general y ejemplos paso a paso)
 
 ## Requisitos
 - Python 3.10+ (recomendado)
@@ -27,6 +28,7 @@ manim -pqm src/expresiones_algebraicas.py Escena1_ExpresionesAlgebraicas
 manim -pqm src/expresiones_algebraicas.py Escena2_SumaPolinomios
 manim -pqm src/expresiones_algebraicas.py Escena3_RestaPolinomios
 manim -pqm src/expresiones_algebraicas.py Escena4_ProductoPolinomios
+manim -pqm src/expresiones_algebraicas.py Escena5_ProductoBinomios
 ```
 
 Cambia `-pqm` por `-pqh` o `-p` para más calidad. Los videos se guardan en `media/videos/...` (ignorados por git).

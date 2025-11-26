@@ -3,11 +3,11 @@
 Notebooks que siguen el curso profesional de Manim basado en https://docs.devtaoism.com/docs/html/index.html
 
 ## Requisitos
-- Python 3.10+ y Manim Community 0.18.x (desde la raiz: `pip install -r ..\requirements.txt`).
+- Python 3.10+ y Manim Community 0.18.x (instala desde la raiz: `pip install -r ..\requirements.txt`).
 - Jupyter Notebook/Lab o VS Code con la extension de Jupyter.
 - Distribucion LaTeX si quieres renderizar celdas con `Tex` o `MathTex`.
 
-## Preparacion rapida (Windows)
+## Preparacion rapida
 ```bash
 python -m venv .venv
 .venv\Scripts\activate
@@ -18,9 +18,9 @@ En Linux/macOS activa con `source .venv/bin/activate` y usa la ruta `../requirem
 
 ## Como usar los notebooks
 1. Abre el notebook de cada carpeta y ejecuta las celdas en orden.
-2. Las celdas que renderizan escenas generaran videos bajo `../media/videos/...` (segun configuracion de Manim).
+2. Las celdas que renderizan escenas guardan videos bajo `../media/videos/...` segun la configuracion de Manim.
 3. Ajusta parametros y duplica celdas para probar variantes sin perder los ejemplos originales.
-4. Si prefieres la CLI, copia la clase/escena a un `.py` y ejecutala con `manim -pqm ruta.py NombreDeEscena`.
+4. Si prefieres la CLI, copia la clase/escena a un `.py` y ejecuta `manim -pqm ruta.py NombreDeEscena`.
 
 ## Estructura del curso
 1. 00_Installation - Instalacion de ManimCE

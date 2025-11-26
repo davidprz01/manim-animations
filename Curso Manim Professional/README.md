@@ -1,6 +1,5 @@
 # Curso Manim Professional
 
-Notebooks que siguen el curso profesional de Manim basado en https://docs.devtaoism.com/docs/html/index.html
 
 ## Requisitos
 - Python 3.10+ y Manim Community 0.18.x (instala desde la raiz: `pip install -r ..\requirements.txt`).

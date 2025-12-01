@@ -1,7 +1,7 @@
 from manim import *
 
-class Escena3_IntroduccionRadicacion(Scene):
-    """Introducción a la Radicación - Conceptos básicos"""
+class IntroduccionRadicacion(Scene):
+    # Introducción a la Radicación - Conceptos básicos
     
     def construct(self):
         # TÍTULO
@@ -31,8 +31,8 @@ class Escena3_IntroduccionRadicacion(Scene):
         
         # COMPONENTES - Índice
         flecha_indice = Arrow(
-            start=radical_general.get_left() + LEFT * 0.5 + UP * 0.8,
-            end=radical_general.get_left() + LEFT * 0.1 + UP * 0.5,
+            start=radical_general.get_left() + LEFT * 0.9 + UP * 0.3,
+            end=radical_general.get_left() + LEFT * 0.1 + UP * 0.1,
             color=RED,
             buff=0.1
         )
@@ -40,7 +40,7 @@ class Escena3_IntroduccionRadicacion(Scene):
             r"b = \text{Índice}",
             color=RED,
             font_size=32
-        ).next_to(flecha_indice, LEFT, buff=0.1)
+        ).next_to(flecha_indice, LEFT).shift(LEFT * 0.3 + UP * 0.1)
         
         self.play(Create(flecha_indice), Write(etiqueta_indice))
         self.wait(2)
@@ -84,15 +84,48 @@ class Escena3_IntroduccionRadicacion(Scene):
         ).next_to(definicion, DOWN, buff=0.5)
         self.play(Write(titulo_conversion))
         self.wait(1)
-        
+
         self.play(radical_general.animate.scale(0.8).shift(LEFT * 3 + DOWN * 0.5))
         self.wait(0.5)
-        
+
         texto_radical = Text("Expresión en Radicales", font_size=24, color=BLUE).next_to(radical_general, DOWN, buff=0.5)
         self.play(Write(texto_radical))
         self.wait(1)
-        
-        # FLECHA
+
+# PRIMERO: Señalar b (índice) → Denominador
+        flecha_b = Arrow(
+            start=radical_general.get_left() + LEFT * 0.3 + UP * 0.6,
+            end=radical_general.get_left() + UP * 0.4,
+            color=RED,
+            buff=0.05,
+            stroke_width=4
+        )
+        label_b_denom = Text("b = Denominador", font_size=24, color=RED).next_to(flecha_b, LEFT, buff=0.2)
+
+        self.play(Create(flecha_b), Write(label_b_denom))
+        self.wait(2)
+
+# SEGUNDO: Señalar a (exponente) → Numerador
+        flecha_a = Arrow(
+            start=radical_general.get_right() + RIGHT * 1.2 + UP * 0.2,
+            end=radical_general.get_right() + UP * 0.1,
+            color=YELLOW,
+            buff=0.05,
+            stroke_width=4
+        )
+        label_a_num = Text("a = Numerador", font_size=24, color=YELLOW).next_to(flecha_a, RIGHT, buff=0.2).shift(RIGHT * 0.3)
+
+        self.play(Create(flecha_a), Write(label_a_num))
+        self.wait(2)
+
+        # TERCERO: Eliminar las flechas explicativas
+        self.play(
+            FadeOut(flecha_b), FadeOut(label_b_denom),
+            FadeOut(flecha_a), FadeOut(label_a_num)
+        )
+        self.wait(0.5)
+
+        # CUARTO: Flecha verde de conversión
         flecha_conversion = Arrow(
             start=radical_general.get_right() + RIGHT * 0.3,
             end=radical_general.get_right() + RIGHT * 2.5,
@@ -102,29 +135,21 @@ class Escena3_IntroduccionRadicacion(Scene):
         )
         self.play(Create(flecha_conversion))
         self.wait(0.5)
-        
-        # EXPONENTE
+
+        # QUINTO: Transform a exponente
         exponente_equivalente = MathTex(
             r"c^{\frac{a}{b}}",
             font_size=80
         ).next_to(flecha_conversion, RIGHT, buff=0.3)
-        
+
         self.play(TransformFromCopy(radical_general, exponente_equivalente))
         self.wait(2)
-        
-        texto_exponente = Text("Expresión en Exponentes", font_size=24, color=BLUE).next_to(exponente_equivalente, DOWN, buff=0.5)
+
+        texto_exponente = Text("Expresión en Exponentes", font_size=24, color=BLUE).next_to(exponente_equivalente, DOWN, buff=0.5).shift(RIGHT * 0.2)
         self.play(Write(texto_exponente))
         self.wait(2)
-        
-        # DESTACAR CONVERSIÓN
-        label_b = Text("b → Denominador", font_size=24, color=RED).next_to(exponente_equivalente, UP, buff=0.8)
-        self.play(Write(label_b))
-        self.wait(2)
-        
-        label_a = Text("a → Numerador", font_size=24, color=YELLOW).move_to(label_b.get_center())
-        self.play(FadeOut(label_b), Write(label_a))
-        self.wait(2)
-        self.play(FadeOut(label_a))
+
+# (Eliminar las líneas anteriores de label_b y label_a que tenías)
         
         # LIMPIAR PARA EJEMPLOS
         self.play(*[FadeOut(mob) for mob in self.mobjects if mob != titulo])
@@ -139,7 +164,7 @@ class Escena3_IntroduccionRadicacion(Scene):
         self.play(Write(radical_ej1))
         self.wait(1)
         
-        nota_ej1 = Text("Índice b=2 (omitido)", font_size=22, color=RED).next_to(radical_ej1, UP, buff=0.3)
+        nota_ej1 = Text("Índice b=2 (omitido)", font_size=22, color=RED).next_to(radical_ej1, RIGHT, buff=0.3)
         self.play(FadeIn(nota_ej1))
         self.wait(1.5)
         self.play(FadeOut(nota_ej1))

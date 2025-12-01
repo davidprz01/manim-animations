@@ -1,13 +1,17 @@
-# Animaciones con Manim (expresiones y curso profesional)
+# Animaciones con Manim (expresiones, calculo y curso profesional)
 
-Coleccion en espanol para practicar Manim Community: escenas CLI sobre expresiones algebraicas/potenciacion y el set completo de notebooks del curso "Manim Professional".
+Coleccion en espanol para practicar Manim Community: escenas CLI sobre expresiones algebraicas, potencia/radicacion y calculo (derivadas/limites), mas el set completo de notebooks del curso "Manim Professional".
 
 ## Estructura
 - `src/expresiones_algebraicas.py`: 4 escenas listas para CLI (Escena1_ExpresionesAlgebraicas, Escena2_SumaPolinomios, Escena3_RestaPolinomios, Escena4_ProductoPolinomios).
 - `Expresiones Algebraicas/manin.ipynb`: notebook editable con el mismo contenido de expresiones.
-- `potyr/potencia.py`: escenas introductorias sobre potenciacion (IntroPotencia, EjemplosPotenciacion).
-- `Potencia y Radicacion/main.py`: boceto de escena de potencia/radicacion.
+- `potyr/potencia.py`: introduccion a potencia/radicacion (componentes del radical y conversion a exponentes) en la escena `Escena3_IntroduccionRadicacion`.
+- `potyr/radicacion.py`: variante guiada de radicacion con conversion radical ↔ exponente (`IntroduccionRadicacion`).
+- `Grupos/Grupo_1.py`: Regla de la cadena y diferenciacion implicita (`ReglasCadenaYImplicita`).
+- `Grupos/Grupo_2.py`: Metodos para resolver limites (sustitucion, factorizacion, racionalizacion) (`LimitesAnimation`).
+- `Grupos/Grupo_3.py`: Reglas de derivacion: suma, producto y cociente (`ReglasDerivadasScene`).
 - `Curso Manim Professional/`: 15 notebooks tematicos (00_Installation a 14_Basic_Updaters) basados en la guia de DevTaoism.
+- `Videos/`: renders de ejemplo (no requeridos para ejecutar).
 - `media/`: salidas de render que git ignora.
 
 ## Requisitos
@@ -32,12 +36,14 @@ manim -pqm src/expresiones_algebraicas.py Escena2_SumaPolinomios
 manim -pqm src/expresiones_algebraicas.py Escena3_RestaPolinomios
 manim -pqm src/expresiones_algebraicas.py Escena4_ProductoPolinomios
 
-# Potencias
-manim -pqm potyr/potencia.py IntroPotencia
-manim -pqm potyr/potencia.py EjemplosPotenciacion
+# Potencias y radicacion
+manim -pqm potyr/potencia.py Escena3_IntroduccionRadicacion
+manim -pqm potyr/radicacion.py IntroduccionRadicacion
 
-# Borrador potencia/radicacion
-manim -pqm "Potencia y Radicacion/main.py" EjemploPotencia
+# Calculo (derivadas/limites)
+manim -pqm Grupos/Grupo_1.py ReglasCadenaYImplicita
+manim -pqm Grupos/Grupo_2.py LimitesAnimation
+manim -pqm Grupos/Grupo_3.py ReglasDerivadasScene
 ```
 Cambia `-pqm` por `-pqh` o `-p` para mas calidad. Videos en `media/videos/...`.
 
